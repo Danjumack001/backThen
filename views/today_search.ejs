@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Results</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: rgb(24, 24, 24); color: white; font-family: monospace; }
+  </style>
+</head>
+<body class="container mt-5">
+  <h1 class="text-danger">Search Results for "<%= query %>"</h1>
+
+  <h3 class="mt-4">Events</h3>
+  <ul class="list-group">
+    <% if (eventResults && eventResults.length > 0) { %>
+      <% eventResults.forEach(item => { %>
+        <li class="list-group-item bg-dark text-white border-0">
+          <%= item.year %> — <%= item.text %>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <p>No matching events found.</p>
+    <% } %>
+  </ul>
+
+  <h3 class="mt-4">Births</h3>
+  <ul class="list-group">
+    <% if (birthResults && birthResults.length > 0) { %>
+      <% birthResults.forEach(item => { %>
+        <li class="list-group-item bg-dark text-white border-0">
+          <%= item.year %> — <%= item.text %>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <p>No matching births found.</p>
+    <% } %>
+  </ul>
+
+  <h3 class="mt-4">Deaths</h3>
+  <ul class="list-group">
+    <% if (deathResults && deathResults.length > 0) { %>
+      <% deathResults.forEach(item => { %>
+        <li class="list-group-item bg-dark text-white border-0">
+          <%= item.year %> — <%= item.text %>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <p>No matching deaths found.</p>
+    <% } %>
+  </ul>
+
+  <a href="home" class="btn btn-danger mt-4">Back ← </a>
+</body>
+</html>
