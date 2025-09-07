@@ -20,12 +20,17 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.urlencoded({ extended: true }))
 
 app.use(session({
-  secret: "superSecretKey",
+  secret: "superSecretKey", 
   resave: false,
   saveUninitialized: false,
-  store: MongoStore.create({ mongoUrl: process.env.MONGO_URI}),
-  cookie: { maxAge: 1000 * 60 * 60 }
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URI, 
+  }),
+  cookie: {
+    maxAge: 1000 * 60 * 60 // 1 hour
+  }
 }));
+
 
 function isLoggedIn(req, res, next) {
   if (!req.session.user) {
