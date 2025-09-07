@@ -4,6 +4,7 @@ const axios = require('axios')
 const User = require("./models/users");
 const History = require("./models/history");
 const bcrypt = require('bcrypt');
+require("dotenv").config();
 const { log } = require("console");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -22,7 +23,7 @@ app.use(session({
   secret: "superSecretKey",
   resave: false,
   saveUninitialized: false,
-  store: MongoStore.create({ mongoUrl: "mongodb://localhost:27017/timeline" }),
+  store: MongoStore.create({ mongoUrl: process.env.MONGO_URI}),
   cookie: { maxAge: 1000 * 60 * 60 }
 }));
 
