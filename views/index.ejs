@@ -62,20 +62,20 @@ font-family: monospace;
 
 </div>
 
-<div class="card mb-3">
+<div class="card mb-3 mt-3 bg-dark border-danger shadow ">
   <div class="card-body">
     <h5 class="card-title text-danger">Today in History</h5>
 
     <div class="list-group">
       <% if (clip && clip.length > 0) { %>
         <% clip.forEach(item => { %>
-          <div class="list-group-item">
+          <div class="list-group-item bg-dark text-white border-0">
             <h6 class="mb-1"><%= item.year %></h6>
             <p class="mb-1"><%= item.text %></p>
           </div>
         <% }) %>
       <% } else { %>
-        <p>No events today.</p>
+        <p class="text-muted">No events today.</p>
       <% } %>
     </div>
 
@@ -87,7 +87,7 @@ font-family: monospace;
  <div class="container mt-5">
     <div class="row">
       <div class="row-md-6">
-        <div class="card bg-dark border-danger shadow h-75">
+        <div class="card bg-dark border-danger shadow h-50">
           <div class="card-body">
             <h5 class="card-title text-danger">Births on this day</h5>
               <div class="list-group">
