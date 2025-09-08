@@ -1,77 +1,76 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Sign Up</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-          <link rel="icon" href="/images/favicon.png" type="image/png">
-                <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
-</head>
-<style>
+
+  <link rel="icon" href="/images/favicon.png" type="image/png">
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
+
+  <style>
     h2 {
-        font-family: monospace;
-        text-align: center;
-        color: white;
+      font-family: monospace;
+      text-align: center;
+      color: white;
     }
-
     body {
-        background-color: rgb(24, 24, 24);
+      background-color: rgb(24, 24, 24);
     }
-
     label {
-        color: white;
-        font-family: monospace;
+      color: white;
+      font-family: monospace;
     }
-
     input {
-        font-family: monospace;
+      font-family: monospace;
     }
-
     header {
-        padding-bottom: 65px;
+      padding-bottom: 65px;
     }
-    p{
-        font-family: monospace;
-        color: white;
-        text-align: center;
-        
+    p {
+      font-family: monospace;
+      color: white;
+      text-align: center;
     }
-    a{
-        text-decoration: none;
+    a {
+      text-decoration: none;
     }
-</style>
-
+  </style>
+</head>
 <body>
-    <header>
-        <h2>Create about_time Account</h2>
-    </header>
-    
-        <form class="mx-auto" method="post" action="/signup">
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username">
-            </div>
+  <header>
+    <h2>Create about_time Account</h2>
+  </header>
 
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" >
-            </div>
+  <div class="container">
+    <form class="mx-auto w-100 w-md-50" method="post" action="/signup">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username">
+      </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-danger" style="font-family: monospace;">Submit</button>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email">
+      </div>
 
-            </div>
-        </form>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password">
+      </div>
 
-        <p>Already have an account ? <a href="/signin">Login</a></p>
+      <div class="text-center">
+        <button type="submit" class="btn btn-danger" style="font-family: monospace;">Submit</button>
+      </div>
+    </form>
 
+    <p>Already have an account? <a href="/signin">Login</a></p>
+  </div>
 </body>
-
 </html>
