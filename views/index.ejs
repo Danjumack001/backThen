@@ -13,21 +13,24 @@
     <link rel="icon" href="/images/favicon.png" type="image/png">
     <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
 
-    <style>
-      body {
-        background-color: rgb(24, 24, 24);
-      }
-      a {
-        font-family: monospace;
-      }
-      h5 {
-        font-family: monospace;
-      }
-      div {
-        font-family: monospace;
-      }
-    </style>
-  </head>
+        <style>
+  
+    a{
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }      
+    h5{
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    div{
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+        </style>
+    </head>
+    <body>
+         <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active text-danger" aria-current="page" href="#">Home</a>
+  </li>
 
   <body>
     <ul class="nav justify-content-end">
@@ -41,24 +44,49 @@
       ≡
     </a>
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas_div" aria-labelledby="offcanvasExampleLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">About_time</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <h5>For more options ,
-          <br>
-          please create an ABOUT_TIME account .....
-          <br>
-          or Login if you have one
-        </h5>
-      </div>
+<a class="text-danger" data-bs-toggle="offcanvas" href="#offcanvas_div" role="button" aria-controls="offcanvasExample" style="text-decoration: none;font-size: 50px;">
+  ≔
+</a>
 
-      <div class="mb-3 text-center">
-        <a class="btn btn-danger text-white me-4" href="signin" style="text-decoration: none;">Login</a>
-        <a class="btn btn-danger text-white" href="signup" style="text-decoration: none;">Create account</a>
-      </div>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas_div" aria-labelledby="offcanvasExampleLabel" >
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">About_time</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+   <h5>For more options ,
+    <br>
+     please create an ABOUT_TIME account .....
+     <br>
+    or Login if you have one 
+</h5>
+  
+  </div>
+
+  <div class="mb-3 text-center">
+    <a class="btn btn-danger text-white me-4" href="signin" style="text-decoration: none;">Login</a>   
+
+<a class="btn btn-danger text-white" href="signup" style="text-decoration: none;">Create account</a>
+  </div>
+
+</div>
+
+<div class="card mb-3 mt-3 bg-light border-danger shadow ">
+  <div class="card-body">
+    <h5 class="card-title text-danger">Today in History</h5>
+
+    <div class="list-group">
+      <% if (clip && clip.length > 0) { %>
+        <% clip.forEach(item => { %>
+          <div class="list-group-item bg-light text-black border-0">
+            <h6 class="mb-1" style="font-weight: bold;"><%= item.year %></h6>
+            <p class="mb-1"><%= item.text %></p>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No events today.</p>
+      <% } %>
     </div>
 
     <div class="container my-4">

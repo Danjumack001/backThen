@@ -12,11 +12,8 @@
   <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
 
   <style>
-    body {
-      background-color: rgb(24, 24, 24);
-    }
-    a, h5, div {
-      font-family: monospace;
+   a, h5, div {
+      font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
     }
   </style>
 </head>
@@ -32,21 +29,20 @@
   </ul>
 
   <div class="container text-center mt-3">
-    <h4 class="text-light">Welcome , <%= user.fullname || user.name %></h4>
+    <h4 class="text-dark">Welcome , <%= user.fullname || user.name %></h4>
     <p class="text-secondary">Today's date is : <%= today %></p>
   </div>
 
   <div class="container d-flex justify-content-center mt-3">
     <form class="d-flex" role="search" style="width: 50%;" method="get" action="/search">
-      <input class="form-control me-2" type="search" name="q" placeholder="Search something <%= user.name%>..." aria-label="Search" required>
+      <input class="form-control me-2" type="search" name="q" placeholder=" ⌕ <%= user.name%>..." aria-label="Search" required>
       <button class="btn btn-danger" type="submit">Search</button>
     </form>
   </div>
 
   <a class="text-danger" data-bs-toggle="offcanvas" href="#offcanvas_div" role="button" aria-controls="offcanvasExample" 
      style="text-decoration: none;font-size: 50px;">
-    ≡
-  </a>
+≔  </a>
 
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas_div" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
@@ -70,14 +66,14 @@
     <a href="/logout" class="text-danger text-center" style="text-decoration: none;">Sign-Out</a>
   </div>
 
-  <div class="card mb-3 mt-3 bg-dark border-danger shadow " >
+  <div class="card mb-3 mt-3 bg-light border-danger shadow " >
     <div class="card-body">
       <h5 class="card-title text-danger">Today in History</h5>
       <div class="list-group">
         <% if (clip && clip.length > 0) { %>
           <% clip.forEach(item => { %>
-            <div class="list-group-item bg-dark text-white border-0">
-              <h6 class="mb-1"><%= item.year %></h6>
+            <div class="list-group-item bg-light text-black border-0">
+              <h6 class="mb-1" style="font-weight: bold;"><%= item.year %></h6>
               <p class="mb-1"><%= item.text %></p>
             </div>
           <% }) %>
@@ -100,7 +96,7 @@
               <% if (birth && birth.length > 0) { %>
                 <% birth.forEach(item => { %>
                   <div class="list-group-item bg-dark text-white border-0">
-                    <%= item.year %> — <%= item.text %>
+                    <%= item.year %> → <%= item.text %>
                   </div>
                 <% }) %>
               <% } else { %>
@@ -111,14 +107,14 @@
           <a href="births" class="btn btn-danger btn-sm">See More</a>
         </div>
 
-        <div class="card bg-dark border-danger shadow mt-4">
+        <div class="card bg-dark border-danger shadow mt-5">
           <div class="card-body">
             <h5 class="card-title text-danger">Deaths on this day</h5>
             <div class="list-group">
               <% if (death && death.length > 0) { %>
                 <% death.forEach(item => { %>
                   <div class="list-group-item bg-dark text-white border-0">
-                    <%= item.year %> — <%= item.text %>
+                    <%= item.year %> → <%= item.text %>
                   </div>
                 <% }) %>
               <% } else { %>
