@@ -366,6 +366,63 @@ app.get("/today_search", async (req, res) => {
 });
 
 
+app.get("/death_search", async (req, res) => {
+  const query = req.query.q?.toLowerCase();
+  if (!query) {
+    return res.redirect("/death");
+  }
+
+  try {
+    const results = await History.find({
+      $or: [
+        { year: { $regex: query, $options: "i" } },
+        { text: { $regex: query, $options: "i" } }
+      ]
+    });
+
+    const deathResults = results.filter(r => r.category === "death");
+
+    res.render("death_search", {
+      query,
+      deathResults
+    });
+
+  } catch (error) {
+    console.error("Error searching history:", error.message);
+    res.send("Error searching data.");
+  }
+});
+
+
+
+app.get("/birth_search", async (req, res) => {
+  const query = req.query.q?.toLowerCase();
+  if (!query) {
+    return res.redirect("/birth");
+  }
+
+  try {
+    const results = await History.find({
+      $or: [
+        { year: { $regex: query, $options: "i" } },
+        { text: { $regex: query, $options: "i" } }
+      ]
+    });
+
+    const birthResults = results.filter(r => r.category === "birth");
+
+    res.render("birth_search", {
+      query,
+      birthResults
+    });
+
+  } catch (error) {
+    console.error("Error searching history:", error.message);
+    res.send("Error searching data.");
+  }
+});
+
+
 
 app.get("/logout", (req, res) => {
   req.session.destroy(() => {

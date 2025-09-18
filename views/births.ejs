@@ -36,6 +36,19 @@
     </style>
   </head>
   <body class="container mt-4">
+
+          <ul class="nav justify-content-start">
+    <li class="nav-item">
+      <a class="nav-link text-danger" href="home"> ← </a>
+    </li>
+  </ul>
+  
+      <div class="container d-flex justify-content-center mt-3 mb-3">
+    <form class="d-flex" role="search" style="width: 50%;" method="get" action="/birth_search">
+      <input class="form-control me-2" type="search" name="q" placeholder=" ⌕ births" aria-label="Search" required>
+      <button class="btn btn-danger" type="submit">Search</button>
+    </form>
+  </div>
     <h1 class="text-center">Births on <%= today %></h1>
 
     <ul class="list-group mt-3">
